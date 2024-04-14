@@ -1,0 +1,377 @@
+ * {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+ }
+
+ body {
+   height: 100vh;
+   background: rgb(2, 0, 36);
+   background: linear-gradient(112deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 60%, rgba(0, 212, 255, 1) 100%);
+   color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-attachment: fixed;
+ }
+
+
+ .container__login,
+ .container__register {
+   max-width: 380px;
+   border: 2px solid rgb(34, 82, 134);
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgb(34, 82, 134), 0 0 20px rgb(34, 82, 134);
+   padding: 30px 20px;
+   background-color: rgba(255, 255, 255, .2);
+   user-select: none;
+ }
+
+
+ .links-form {
+   color: #f2f2f2;
+   text-decoration: none;
+ }
+
+ .links-gestiones {
+   color: #000 !important;
+ }
+
+ h3 {
+   text-shadow: 0 0 3.5px #f2f2f2;
+   font-family: 'Pacifico', sans-serif;
+ }
+
+ .container__login,
+ .container__register {
+   max-width: 380px;
+   border: 2px solid rgb(34, 82, 134);
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgb(34, 82, 134), 0 0 20px rgb(34, 82, 134);
+   padding: 30px 20px;
+   background-color: rgba(255, 255, 255, .2);
+   user-select: none;
+ }
+
+ .container-logo-te img {
+   width: 90px;
+   filter: saturate(1.5);
+ }
+
+ .form {
+   width: 90%;
+   margin: 0 auto;
+   border-radius: 10px;
+   background-color: #ffffff1a;
+   padding: 10px 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   box-shadow: 0 0 1px #fff;
+ }
+
+ .form .form__username,
+ .form .form__password {
+   width: 100%;
+   text-align: left;
+   flex-direction: column;
+ }
+
+ .form__username label,
+ .form__password label {
+   margin-bottom: 5px;
+ }
+
+ .form__iniciarSesion button,
+ .btn-registrar {
+   background: linear-gradient(135deg, rgb(0, 149, 255), rgb(3, 40, 100)) !important;
+   width: 200px;
+   margin-top: 5px;
+ }
+
+ .form__iniciarSesion button:hover,
+ .btn-registrar:hover {
+   text-shadow: 0 0 5px #fff;
+ }
+
+ .form__iniciarConGoogle button {
+   width: 200px;
+   border-radius: 10px;
+ }
+
+ .logo-google {
+   width: 30px;
+   border-radius: 50%;
+   padding: 4px;
+   background-color: #fff;
+   float: left;
+ }
+
+ form div input {
+   padding: 5px 7px;
+   outline: none;
+   border: none;
+ }
+
+ .span {
+   font-weight: bold;
+   font-style: italic;
+ }
+
+ .mensajeError {
+   padding: 10px;
+   border: 1px solid red;
+   background-color: rgba(255, 21, 21, 0.232);
+ }
+
+ .seccion-home {
+   width: 110vh;
+   height: 100vh;
+ }
+
+ .seccion-reservas {
+   height: 85vh;
+   width: 90vw;
+   text-align: left;
+   color: #000;
+ }
+
+ .seccion-reservas h3 {
+   font-family: 'Roboto', sans-serif;
+   color: #eee;
+   text-shadow: 0 0 2px #fff, 0 0 2px #fff;
+   padding-top: 15px;
+ }
+
+ .nav-reservas {
+   padding: 15px 0;
+ }
+
+
+ .form-reserva,
+ .container-listado-reservas {
+   width: 70%;
+   max-width: 552px;
+   padding: 20px 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   border: 2px solid rgb(34, 82, 134);
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgb(34, 82, 134), 0 0 20px rgb(34, 82, 134);
+   background-color: rgba(255, 255, 255, .97);
+ }
+
+ .container-listado-reservas {
+   height: 387px;
+ }
+
+ .container-listado-reservas h3 {
+   color: #2b2b2b;
+   text-shadow: 0 0 3px #a6a6a6;
+ }
+
+ .container-listado-reservas>div {
+   padding: 15px 0;
+   border: 1px solid #c3c3c3;
+   box-shadow: 0px 3px 3px #bdbdbd;
+   background-color: #fff;
+   overflow: scroll;
+ }
+
+ .container-listado-reservas>div::-webkit-scrollbar {
+   display: none;
+ }
+
+ .form-reserva-inputs {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .width-fecha-horario {
+   width: 49%;
+   background-image: linear-gradient(rgb(12, 70, 196), rgb(72, 246, 255));
+   border: 1px solid #b6b6b6;
+   box-shadow: 1px 5px 5px 1px rgba(0, 0, 0, .2);
+   color: #eee;
+ }
+
+ .width-fecha-horario label {
+   padding: 4px 0;
+ }
+
+ .btn-volver,
+ .btn-reservar,
+ .btn-limpiar {
+   width: 150px;
+   height: 40px;
+   border: 2px solid #fff;
+   background-color: #ffffff3d;
+   border-radius: 10px;
+ }
+
+ .btn-volver {
+   width: 70px;
+ }
+
+ .btn-volver a {
+   text-decoration: none;
+   color: #fff;
+ }
+
+ .listado-reservas {
+   width: 100%;
+   height: 38px;
+   display: flex;
+   justify-content: space-around;
+   align-items: top;
+   margin: 15px 0;
+ }
+
+ .listado-reservas p {
+   line-height: 38px;
+   padding-bottom: 38px;
+   border-bottom: 1px solid #a1a1a1;
+ }
+
+ .btn-danger {
+   background: linear-gradient(270deg, rgb(146, 12, 39), rgb(255, 0, 0));
+   border: 2px solid rgb(188, 8, 44);
+   box-shadow: 0 5px 5px rgba(220, 20, 60, .5);
+ }
+
+ .container-mesas {
+   width: 100%;
+   max-width: 510px;
+   border: 1px solid #fff;
+   background-color: #ffffff24;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 9px;
+   padding: 10px;
+   border: 1px solid #b6b6b6;
+   box-shadow: 1px 5px 5px 1px rgba(0, 0, 0, .2);
+ }
+
+ .btn-reservar,
+ .btn-limpiar {
+   background: linear-gradient(135deg, rgb(0, 149, 255), rgb(3, 40, 100));
+   border-color: rgb(82, 102, 255);
+   box-shadow: 0 5px 5px rgba(82, 102, 255, .5);
+ }
+
+ .btn-reservar {
+   margin-right: 10px !important;
+ }
+
+ .btn-limpiar {
+   margin-left: 10px !important;
+ }
+
+ .box-mesa {
+   width: 90px;
+   height: 90px;
+   text-align: center;
+   border-radius: 5px;
+   padding: 0px 5px;
+   position: relative;
+   user-select: none;
+   text-shadow: 0 0 1px #c8c8c8;
+ }
+
+ .box-mesa:hover {
+   cursor: pointer;
+ }
+
+ .box-mesa img {
+   width: 100%;
+ }
+
+ .box-mesa p {
+   position: absolute;
+   padding: 0;
+   bottom: -12px;
+   left: 15px;
+ }
+
+ .ocupada {
+   pointer-events: none;
+   border: 3px solid crimson;
+   background-color: rgba(255, 0, 0, 0.44);
+   box-shadow: 0 0 5px crimson inset;
+ }
+
+ .libre {
+   border: 3px solid rgb(0, 142, 194);
+   background: linear-gradient(135deg, rgb(66, 125, 188), rgba(37, 247, 236, 0.852));
+   box-shadow: 0 0 5px rgb(0, 142, 194) inset;
+ }
+
+ @media (max-width:720px) {
+   .seccion-home {
+     width: 100%;
+     height: normal;
+   }
+
+   #dateReserva {
+     width: 100% !important;
+   }
+
+   .seccion-reservas {
+     width: 100%;
+   }
+
+   .nav-reservas {
+     padding-right: 7px;
+     padding-left: 7px;
+   }
+
+   .form-reserva,
+   .container-listado-reservas {
+     width: 90%;
+   }
+
+   .form-reserva-inputs {
+     flex-direction: column;
+   }
+
+   .width-fecha-horario {
+     width: 100%;
+   }
+
+   .width-fecha-horario:first-child {
+     margin-bottom: 10px;
+   }
+
+   .container-mesas {
+     justify-content: space-around !important;
+   }
+
+   .btn-reservar,
+   .btn-limpiar {
+     width: 100%;
+     margin-left: 0 !important;
+     margin-right: 0 !important;
+   }
+
+   .btn-reservar {
+     margin-bottom: 10px !important;
+   }
+
+   .container-listado-reservas {
+     margin-bottom: 15px;
+   }
+
+   .listado-reservas {
+     height: 50px;
+     margin-bottom: 35px;
+   }
+
+   .listado-reservas p {
+     line-height: 23px;
+     padding-bottom: 0;
+     border-bottom: 0;
+     width: 130px;
+   }
+
+ }
