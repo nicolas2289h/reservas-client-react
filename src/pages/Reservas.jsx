@@ -5,7 +5,9 @@ import axios from 'axios';
 import ModalAlert from '../components/ModalAlert';
 import BeatLoader from "react-spinners/BeatLoader";
 
-function Reservas() {
+const URL_BASE = 'https://reservas-server-express.onrender.com'
+
+const Reservas = () => {
     const [listadoReservas, setListadoReservas] = useState([])
     const username = localStorage.getItem('username')
     const [showModal, setShowModal] = useState(false);
@@ -15,10 +17,10 @@ function Reservas() {
 
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://localhost:3000/reserva/cliente?username=${username}`)
+        axios.get(`${URL_BASE}/reserva/cliente?username=${username}`)
             .then(response => setListadoReservas(response.data))
             .catch(error => console.log(error.response))
-            .finally(setLoading(false))
+            .finally(() => setLoading(false))
     }, [])
 
     const modalCancelarReserva = (id) => {
@@ -27,7 +29,7 @@ function Reservas() {
     };
 
     const cancelarReserva = () => {
-        axios.delete(`http://localhost:3000/reserva/eliminar/${reservaId}`)
+        axios.delete(`${URL_BASE}/reserva/eliminar/${reservaId}`)
             .then(() => {
                 setListadoReservas(prevState => prevState.filter(item => item.id !== reservaId))
             })
@@ -48,6 +50,7 @@ function Reservas() {
 
     return (
         <div>
+
             <nav className='nav-reservas d-flex justify-content-between align-items-center'>
                 <h2>Bienvenid@ {username}</h2>
                 <button className='btn-volver text-white' onClick={handleLogout}>LogOut</button>
@@ -56,28 +59,33 @@ function Reservas() {
             <div className='seccion-reservas'>
                 <h3 className='mb-3 text-center'>Aqui podrás reservar tu Merienda</h3>
                 <div className='container-form-reserva d-flex justify-content-center flex-wrap gap-3'>
-                    <FormReservas />
-
-                    {/* LISTADO MIS RESERVAS */}
-                    <div className='container-listado-reservas'>
-                        <h3 className='text-center'>Mis reservas 📝</h3>
-                        <div>
-                            {listadoReservas.length == 0
-                                ?
-                                <h5>📆 Aún no tienes reservas</h5>
-                                :
-                                listadoReservas.map(item => (
-                                    <div key={item.id} className='listado-reservas'>
-                                        <p>📆 {formatearFecha(item.fecha)} ⌚ Horario: {item.horario} ☕🥐 Mesa: {item.nroMesa}</p>
-                                        <button onClick={() => modalCancelarReserva(item.id)} className='btn btn-danger'>Cancelar</button>
+                    {
+                        loading
+                            ?
+                            <BeatLoader color="#36d7b7" />
+                            :
+                            <>
+                                <FormReservas />
+                                <div className='container-listado-reservas'>
+                                    <h3 className='text-center'>Mis reservas 📝</h3>
+                                    <div>
+                                        {listadoReservas.length == 0
+                                            ?
+                                            <h5>📆 Aún no tienes reservas</h5>
+                                            :
+                                            listadoReservas.map(item => (
+                                                <div key={item.id} className='listado-reservas'>
+                                                    <p>📆 {formatearFecha(item.fecha)} ⌚ Horario: {item.horario} ☕🥐 Mesa: {item.nroMesa}</p>
+                                                    <button onClick={() => modalCancelarReserva(item.id)} className='btn btn-danger'>Cancelar</button>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
-                                ))
-                            }
-                        </div>
-                    </div>
+                                </div>
+                            </>
+                    }
                 </div>
             </div>
-            {loading && <BeatLoader color="#36d7b7" />}
             <ModalAlert show={showModal} handleClose={() => setShowModal(false)} cancelarReserva={cancelarReserva} />
         </div>
     )

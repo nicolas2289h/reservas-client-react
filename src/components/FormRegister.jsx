@@ -11,6 +11,8 @@ const initialUserData = {
     password: '',
 }
 
+const URL_BASE = 'https://reservas-server-express.onrender.com'
+
 const FormRegister = () => {
     const [formData, setFormData] = useState(initialUserData)
     const [texto, setTexto] = useState('')
@@ -27,7 +29,7 @@ const FormRegister = () => {
         e.preventDefault()
         if (!formData.nombre.trim() || !formData.apellido.trim() || !formData.email.trim() || !formData.username.trim() || !formData.password.trim()) return mostrarModalMensaje('Debe completar todos los datos.')
 
-        axios.post('http://localhost:3000/register', formData)
+        axios.post(`${URL_BASE}/register`, formData)
             .then(response => {
                 console.log(response.data)
                 setFormData(initialUserData)

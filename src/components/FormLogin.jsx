@@ -7,6 +7,8 @@ const initialUserData = {
     password: ''
 }
 
+const URL_BASE = 'https://reservas-server-express.onrender.com'
+
 const FormLogin = () => {
     const [userData, setUserData] = useState(initialUserData)
     const [error, setError] = useState('')
@@ -14,15 +16,16 @@ const FormLogin = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3000/login', userData)
+        console.log(userData)
+        axios.post(`${URL_BASE}/login`, userData)
             .then(response => {
                 const { token, username } = response.data
                 localStorage.setItem('token', token)
                 localStorage.setItem('username', username)
                 navigate('/reservas')
             })
-            .catch(error => {
-                setError(error.response.data.message)
+            .catch(() => {
+                setError("Error en las credenciales")
             });
     }
 
@@ -47,7 +50,7 @@ const FormLogin = () => {
                 <div className="form__iniciarSesion">
                     <button className="btn btn-outline-primary w-100 text-white" type="submit">Iniciar Sesion</button>
                 </div>
-             </form>
+            </form>
 
             <div className="text-center mt-3 form__iniciarConGoogle">
                 <p>No tengo cuenta. <Link to="/register"><span className="span links-form">Registrarme</span></Link></p>

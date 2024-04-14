@@ -12,6 +12,8 @@ const initialForm = {
     nroMesa: null
 }
 
+const URL_BASE = 'https://reservas-server-express.onrender.com'
+
 const FormReservas = () => {
     const [formData, setFormData] = useState(initialForm)
     const [listadoMesas, setListadoMesas] = useState(mesasData.mesas)
@@ -58,7 +60,7 @@ const FormReservas = () => {
 
         const token = localStorage.getItem('token')
 
-        axios.post('http://localhost:3000/reserva/guardar', formData, {
+        axios.post(`${URL_BASE}/reserva/guardar`, formData, {
             headers: {
                 Authorization: token
             }
@@ -81,7 +83,7 @@ const FormReservas = () => {
         setFormData({ ...formData, fecha });
         const token = localStorage.getItem('token')
 
-        axios.get(`http://localhost:3000/reserva/listar?fecha=${fecha}`, {
+        axios.get(`${URL_BASE}/reserva/listar?fecha=${fecha}`, {
             headers: {
                 Authorization: token
             }
