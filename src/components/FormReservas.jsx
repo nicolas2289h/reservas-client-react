@@ -14,7 +14,7 @@ const initialForm = {
 
 const URL_BASE = 'https://cute-dove-jumpsuit.cyclic.app'
 
-const FormReservas = () => {
+const FormReservas = ({ username, obtenerReservasDelUsuario }) => {
     const [formData, setFormData] = useState(initialForm)
     const [listadoMesas, setListadoMesas] = useState(mesasData.mesas)
     const [reservas, setReservas] = useState([])
@@ -28,9 +28,9 @@ const FormReservas = () => {
     const mesActual = (mes < 10 ? '0' + mes : mes)
     const fechaHoy = `${configFecha.getFullYear()}-${mesActual}-${configFecha.getDate()}`
 
-    useEffect(()=>{
-        setFormData({...formData, cliente: localStorage.getItem('username')})
-    },[])
+    useEffect(() => {
+        setFormData({ ...formData, cliente: localStorage.getItem('username') })
+    }, [])
 
     const mostrarModalMensaje = (textoModal) => {
         setShowModal(true)
@@ -67,7 +67,7 @@ const FormReservas = () => {
         })
             .then(() => {
                 setFormData(initialForm)
-                window.location.reload()
+                obtenerReservasDelUsuario(username)
             })
             .catch(error => {
                 console.log(error.response)

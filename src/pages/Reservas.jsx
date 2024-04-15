@@ -16,12 +16,16 @@ const Reservas = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        obtenerReservasDelUsuario(username)
+    }, [])
+
+    const obtenerReservasDelUsuario = (username) => {
         setLoading(true)
         axios.get(`${URL_BASE}/reserva/cliente?username=${username}`)
             .then(response => setListadoReservas(response.data))
             .catch(error => console.log(error.response))
             .finally(() => setLoading(false))
-    }, [])
+    }
 
     const modalCancelarReserva = (id) => {
         setReservaId(id)
@@ -65,7 +69,7 @@ const Reservas = () => {
                             <BeatLoader color="#36d7b7" />
                             :
                             <>
-                                <FormReservas />
+                                <FormReservas username={username} obtenerReservasDelUsuario={obtenerReservasDelUsuario} />
                                 <div className='container-listado-reservas'>
                                     <h3 className='text-center'>Mis reservas 📝</h3>
                                     <div>
