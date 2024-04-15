@@ -12,7 +12,7 @@ const initialForm = {
     nroMesa: null
 }
 
-const URL_BASE = 'https://reservas-server-express.onrender.com'
+const URL_BASE = 'https://cute-dove-jumpsuit.cyclic.app'
 
 const FormReservas = () => {
     const [formData, setFormData] = useState(initialForm)
@@ -118,7 +118,7 @@ const FormReservas = () => {
 
             <div className='botonera text-center'>
                 <button className='btn-reservar m-auto btn btn-primary'>Reservar</button>
-                <button className='btn-limpiar m-auto btn btn-primary' onClick={() => window.location.reload()}>Limpiar</button>
+                {/* <button className='btn-limpiar m-auto btn btn-primary' onClick={() => window.location.reload()}>Limpiar</button> */}
             </div>
 
             <ModalMensajes show={showModal} texto={texto} handleClose={() => setShowModal(false)} />

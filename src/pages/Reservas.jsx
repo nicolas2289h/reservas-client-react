@@ -5,7 +5,7 @@ import axios from 'axios';
 import ModalAlert from '../components/ModalAlert';
 import BeatLoader from "react-spinners/BeatLoader";
 
-const URL_BASE = 'https://reservas-server-express.onrender.com'
+const URL_BASE = 'https://cute-dove-jumpsuit.cyclic.app'
 
 const Reservas = () => {
     const [listadoReservas, setListadoReservas] = useState([])

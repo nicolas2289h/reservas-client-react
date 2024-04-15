@@ -11,7 +11,7 @@ const initialUserData = {
     password: '',
 }
 
-const URL_BASE = 'https://reservas-server-express.onrender.com'
+const URL_BASE = 'https://cute-dove-jumpsuit.cyclic.app'
 
 const FormRegister = () => {
     const [formData, setFormData] = useState(initialUserData)
