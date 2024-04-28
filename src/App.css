@@ -64,8 +64,8 @@
    font-size: 3.5rem;
  }
 
- .fs-2{
-  font-size: 2rem;
+ .fs-2 {
+   font-size: 2rem;
  }
 
  .container-home {
@@ -88,17 +88,55 @@
    text-shadow: 0 0 4.5px #fff;
  }
 
- .white-shadow{
-  box-shadow: 0 0 10px #ffffffb0;
-  backdrop-filter: blur(10px);
+ .white-shadow {
+   box-shadow: 0 0 10px #ffffffb0;
+   backdrop-filter: blur(10px);
  }
 
- .form-width{
-  max-width: 600px;
-  width: 100%;
-  /* margin: auto; */
+ .form-width {
+   max-width: 600px;
+   width: 100%;
+   /* margin: auto; */
  }
 
- .btn-width{
-  width: 180px;
+ .btn-width {
+   width: 180px;
+ }
+
+
+
+ @media screen and (max-width: 1000px) {
+   .nav-responsive {
+     flex-direction: column;
+   }
+
+   .wrap-responsive {
+     flex-wrap: wrap;
+     margin: 0 auto;
+   }
+ }
+
+ @media screen and (max-width: 720px) {
+   .nav-responsive {
+     flex-direction: column;
+   }
+
+   .reserva-responsive {
+     justify-content: space-between;
+   }
+
+   .container-mis-reservas-responsive {
+     margin-bottom: 25px;
+   }
+
+   .mis-reservas-responsive {
+     padding: 12px;
+
+   }
+ }
+
+ @media screen and (max-width: 400px) {
+   .sn-responsive {
+     margin-top: 55px;
+   }
  }

@@ -52,7 +52,7 @@ const Reservas = () => {
             <h3 className='text-center my-4'>Aqui podrás reservar tu Merienda</h3>
 
             <div className=''>
-                <div className='d-flex flex-wrap gap-4'>
+                <div className='d-flex gap-4 wrap-responsive justify-content-center'>
                     {
                         loading
                             ?
@@ -60,9 +60,9 @@ const Reservas = () => {
                             :
                             <>
                                 <FormReservas username={username} obtenerReservasDelUsuario={obtenerReservasDelUsuario} />
-                                <div className='bg-white form-width text-black rounded'>
+                                <div className='bg-white form-width text-black rounded container-mis-reservas-responsive'>
                                     <h3 className='text-center mt-1'>Mis reservas 📝</h3>
-                                    <div className=''>
+                                    <div className='mis-reservas-responsive'>
                                         {listadoReservas.length == 0
                                             ?
                                             <h5 className='ms-5'>📆 Aún no tienes reservas</h5>

@@ -103,7 +103,7 @@ const FormReservas = ({ username, obtenerReservasDelUsuario }) => {
     return (
         <form className='form-control form-width' action="" onSubmit={handleSubmit}>
             <div className='d-flex justify-content-between shadow gap-2'>
-                <div className='d-flex w-50 flex-column'>
+                <div className='d-flex w-50 flex-column reserva-responsive'>
                     <label htmlFor="fecha">Seleccioná una fecha</label>
                     <input className='p-1 mb-2' min={fechaHoy} value={formData.fecha} name='fecha' id='fecha' type="date" onChange={listarReservas} required />
                 </div>

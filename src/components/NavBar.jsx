@@ -30,7 +30,7 @@ const BasicExample = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto d-flex justify-content-between w-100">
-                        <div className='d-flex'>
+                        <div className='d-flex nav-responsive'>
                             <Nav.Link href="#" onClick={() => navigate('/')}>Home</Nav.Link>
                             {/* <Nav.Link href='#' disabled='false' onClick={() => navegar('/menu')}>Menú</Nav.Link> */}
                             <Nav.Link href='#' onClick={() => navegar('/sobre-nosotros')}>Sobre Nosotros</Nav.Link>

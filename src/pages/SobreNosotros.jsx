@@ -7,7 +7,7 @@ const SobreNosotros = () => {
         <div className='container container-home'>
             <div className="row">
                 <div className="col-sm-12 col-md-6 mx-auto">
-                    <div className=''>
+                    <div className='sn-responsive'>
                         <p className='text-justify'>
                             En la localidad de San Antonio, ubicada en la provincia de Jujuy, vas a encontrar nuestro rincón culinario dedicado a las delicias más reconfortantes. Somos más que un salón de té, somos un lugar donde la buena comida y la buena compañía se unen para crear momentos inolvidables.
                         </p>
