@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import BeatLoader from "react-spinners/BeatLoader";
 import axios from "axios";
 
 const initialUserData = {
@@ -7,16 +8,18 @@ const initialUserData = {
     password: ''
 }
 
-const URL_BASE = 'https://cute-dove-jumpsuit.cyclic.app'
+const URL_BASE = 'https://reservas-glitch-production.up.railway.app'
 
 const FormLogin = () => {
     const [userData, setUserData] = useState(initialUserData)
+    const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(userData)
+        // console.log(userData)
+        setLoading(true)
         axios.post(`${URL_BASE}/login`, userData)
             .then(response => {
                 const { token, username } = response.data
@@ -26,7 +29,8 @@ const FormLogin = () => {
             })
             .catch(() => {
                 setError("Error en las credenciales")
-            });
+            })
+            .finally(() => setLoading(false))
     }
 
     const handleChange = e =>
@@ -36,29 +40,34 @@ const FormLogin = () => {
         })
 
     return (
-        <div className="container__login">
-            <h3 className="text-center mb-3">Inicio de Sesión</h3>
-            <form className="form text-center" onSubmit={handleLogin}>
-                <div className="form__username d-flex justify-space-between">
-                    <label className="" htmlFor="username"><i className="bi bi-people-fill"></i> Username</label>
-                    <input type="text" name="username" id="username" onChange={handleChange} required placeholder="nicolas" autoFocus />
-                </div>
-                <div className="form__password d-flex justify-space-between">
-                    <label className="" htmlFor="password"><i className="bi bi-shield-lock"></i> Password</label>
-                    <input type="password" name="password" id="password" onChange={handleChange} placeholder="nicolas" />
-                </div>
-                <div className="form__iniciarSesion">
-                    <button className="btn btn-outline-primary w-100 text-white" type="submit">Iniciar Sesion</button>
-                </div>
-            </form>
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-3 col-md-6 col-sm-12 mx-auto">
+                    <h3 className="text-center mt-4">Inicio de Sesión</h3>
+                    <form className="mx-auto mt-4 border p-4 rounded white-shadow" onSubmit={handleLogin}>
+                        <div className="mb-3">
+                            <label className="" htmlFor="username"><i className="bi bi-people-fill"></i> Username</label>
+                            <input className="form-control" type="text" name="username" id="username" onChange={handleChange} required placeholder="nico2024" autoFocus />
+                        </div>
+                        <div className="mb-3">
+                            <label className="" htmlFor="password"><i className="bi bi-shield-lock"></i> Password</label>
+                            <input className="form-control" type="password" name="password" id="password" onChange={handleChange} placeholder="nico2024" />
+                        </div>
+                        <div className="">
+                            <button disabled={loading} className="btn btn-outline-primary w-100 text-white" type="submit">
+                                {loading ? <BeatLoader className='mx-auto' size={10} color="#fff" /> : 'Iniciar Sesión'}
+                            </button>
+                        </div>
+                    </form>
 
-            <div className="text-center mt-3 form__iniciarConGoogle">
-                <p>No tengo cuenta. <Link to="/register"><span className="span links-form">Registrarme</span></Link></p>
+                    <div className="text-center mt-3">
+                        <p>No tengo cuenta. <Link className="text-decoration-none" to="/register"><span className="span links-form text-white text-shadow">Registrarme</span></Link></p>
+                    </div>
+                    {error && <p className="text-center mensajeError">{error}</p>}
+                </div>
             </div>
-            {error && <p className="text-center mensajeError">{error}</p>}
         </div>
-    );
-
+    )
 }
 
 export default FormLogin;

@@ -12,7 +12,7 @@ const initialForm = {
     nroMesa: null
 }
 
-const URL_BASE = 'https://cute-dove-jumpsuit.cyclic.app'
+const URL_BASE = 'https://reservas-glitch-production.up.railway.app'
 
 const FormReservas = ({ username, obtenerReservasDelUsuario }) => {
     const [formData, setFormData] = useState(initialForm)
@@ -73,7 +73,7 @@ const FormReservas = ({ username, obtenerReservasDelUsuario }) => {
                 console.log(error.response)
                 if (error.response && error.response.status === 403) {
                     mostrarModalMensaje('La sesion ha expirado, inicie sesion nuevamente.')
-                    navigate('/') // Redireccionar al inicio de sesión si el token expiro
+                    navigate('/login') // Redireccionar al inicio de sesión si el token expiro
                 }
             })
     }
@@ -95,29 +95,29 @@ const FormReservas = ({ username, obtenerReservasDelUsuario }) => {
                 console.log(error.response)
                 if (error.response && error.response.status === 403) {
                     mostrarModalMensaje('La sesion ha expirado, inicie sesion nuevamente.')
-                    navigate('/') // Redireccionar al inicio de sesión si el token expiro
+                    navigate('/login') // Redireccionar al inicio de sesión si el token expiro
                 }
             })
     }
 
     return (
-        <form className='form-reserva' action="" onSubmit={handleSubmit}>
-            <div className='form-reserva-inputs'>
-                <div className='width-fecha-horario d-flex justify-content-between align-items-center flex-column'>
+        <form className='form-control form-width' action="" onSubmit={handleSubmit}>
+            <div className='d-flex justify-content-between shadow gap-2'>
+                <div className='d-flex w-50 flex-column'>
                     <label htmlFor="fecha">Seleccioná una fecha</label>
-                    <input min={fechaHoy} className='w-25 w-100 p-1' value={formData.fecha} name='fecha' id='fecha' type="date" onChange={listarReservas} required />
+                    <input className='p-1 mb-2' min={fechaHoy} value={formData.fecha} name='fecha' id='fecha' type="date" onChange={listarReservas} required />
                 </div>
 
-                <div className='width-fecha-horario d-flex justify-content-between align-items-center flex-column'>
-                    <label htmlFor="horario">Elegí un horario (8:00 a 19:00)</label>
-                    <input className='w-25 w-100 p-1' min='08:00' max='19:00' value={formData.horario} name='horario' id='horario' type="time" onChange={handleChange} required />
+                <div className='d-flex w-50 flex-column'>
+                    <label htmlFor="horario">Elegí un horario (16:00 a 21:00)</label>
+                    <input className='p-1 mb-2' min='16:00' max='21:00' value={formData.horario} name='horario' id='horario' type="time" onChange={handleChange} required />
                 </div>
             </div>
 
             <ListaMesas listadoMesas={listadoMesas} reservas={reservas} marcarReserva={marcarReserva} />
 
-            <div className='botonera text-center'>
-                <button className='btn-reservar m-auto btn btn-primary'>Reservar</button>
+            <div className='text-center mt-2'>
+                <button className='m-auto btn btn-primary btn-width'>Reservar</button>
                 {/* <button className='btn-limpiar m-auto btn btn-primary' onClick={() => window.location.reload()}>Limpiar</button> */}
             </div>
 

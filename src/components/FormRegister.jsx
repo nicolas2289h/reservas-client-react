@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BeatLoader } from "react-spinners";
 import ModalMensajes from "./ModalMensajes";
 
 const initialUserData = {
@@ -11,12 +12,13 @@ const initialUserData = {
     password: '',
 }
 
-const URL_BASE = 'https://cute-dove-jumpsuit.cyclic.app'
+const URL_BASE = 'https://reservas-glitch-production.up.railway.app'
 
 const FormRegister = () => {
     const [formData, setFormData] = useState(initialUserData)
     const [texto, setTexto] = useState('')
     const [showModal, setShowModal] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
     const navigate = useNavigate()
 
@@ -29,13 +31,15 @@ const FormRegister = () => {
         e.preventDefault()
         if (!formData.nombre.trim() || !formData.apellido.trim() || !formData.email.trim() || !formData.username.trim() || !formData.password.trim()) return mostrarModalMensaje('Debe completar todos los datos.')
 
+        setLoading(true)
         axios.post(`${URL_BASE}/register`, formData)
             .then(response => {
                 console.log(response.data)
                 setFormData(initialUserData)
-                navigate('/')
+                navigate('/login')
             })
             .catch(error => setError(error.response.data.message))
+            .finally(() => setLoading(false))
     }
 
     const handleChange = e => {
@@ -46,37 +50,50 @@ const FormRegister = () => {
     }
 
     return (
-        <div className="container__register text-center">
-            <h3 className="mb-3">Registrar nuevo usuario</h3>
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-3 col-md-6 col-sm-12 mx-auto">
+                    <h3 className="mt-4">Registrar nuevo usuario</h3>
 
-            <form onSubmit={handleRegister} className="form d-flex flex-column justify-content-center border">
-                <div>
-                    <input value={formData.nombre} type="text" name="nombre" onChange={handleChange} required placeholder="Nombre" autoFocus />
-                </div>
+                    <form onSubmit={handleRegister} className="mx-auto mt-4 border p-4 rounded white-shadow">
+                        <div className="mb-3">
+                            <label htmlFor="nombre" className="">Nombre</label>
+                            <input className="form-control" value={formData.nombre} type="text" name="nombre" onChange={handleChange} required autoFocus />
+                        </div>
 
-                <div>
-                    <input value={formData.apellido} type="text" name="apellido" onChange={handleChange} required placeholder="Apellido" />
-                </div>
+                        <div className="mb-3">
+                            <label htmlFor="apellido">Apellido</label>
+                            <input className="form-control" value={formData.apellido} type="text" name="apellido" onChange={handleChange} required />
+                        </div>
 
-                <div>
-                    <input value={formData.email} type="email" name="email" onChange={handleChange} required placeholder="Email" />
-                </div>
+                        <div className="mb-3">
+                            <label htmlFor="email">Email</label>
+                            <input className="form-control" value={formData.email} type="email" name="email" onChange={handleChange} required />
+                        </div>
 
-                <div>
-                    <input value={formData.username} type="text" name="username" onChange={handleChange} required placeholder="Username" />
-                </div>
+                        <div className="mb-3">
+                            <label htmlFor="username">Username</label>
+                            <input className="form-control" value={formData.username} type="text" name="username" onChange={handleChange} required />
+                        </div>
 
-                <div>
-                    <input minLength={4} value={formData.password} type="text" name="password" onChange={handleChange} required placeholder="Password" />
-                </div>
+                        <div className="mb-3">
+                            <label htmlFor="password">Password</label>
+                            <input className="form-control" minLength={4} value={formData.password} type="text" name="password" onChange={handleChange} required />
+                        </div>
 
-                <div>
-                    <button className="btn btn-outline-primary text-white btn-registrar">Registrar</button>
+                        <div className="d-grid">
+                            <button disabled={loading} className="btn btn-outline-primary w-100 text-white" type="submit">
+                                {loading ? <BeatLoader className='mx-auto' size={10} color="#fff" /> : 'Registrar'}
+                            </button>
+                        </div>
+                    </form>
+                    <div className="text-center mt-3">
+                        <p className="mt-4 mb-0">Ya tengo una cuenta.<Link className="text-decoration-none" to="/login"> <span className="text-white text-shadow">Iniciar Sesion</span></Link></p>
+                    </div>
+                    {error && <p className="text-center mensajeError">{error}</p>}
+                    <ModalMensajes show={showModal} texto={texto} handleClose={() => setShowModal(false)} />
                 </div>
-            </form>
-            <p className="mt-4 mb-0">Ya tengo una cuenta.<Link to="/"> <span className="span links-form">Iniciar Sesion</span></Link></p>
-            {error && <p className="text-center mensajeError">{error}</p>}
-            <ModalMensajes show={showModal} texto={texto} handleClose={() => setShowModal(false)} />
+            </div>
         </div>
     );
 }
