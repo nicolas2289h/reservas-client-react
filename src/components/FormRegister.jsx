@@ -12,7 +12,7 @@ const initialUserData = {
     password: '',
 }
 
-const URL_BASE = 'https://reservas-glitch-production.up.railway.app'
+const URL_BASE = 'https://enchanted-east-close.glitch.me'
 
 const FormRegister = () => {
     const [formData, setFormData] = useState(initialUserData)

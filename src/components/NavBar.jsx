@@ -26,12 +26,12 @@ const BasicExample = () => {
     return (
         <Navbar expand="lg" className="bg-white">
             <Container fluid className='px-6'>
-                <Navbar.Brand>☕ El Mirador</Navbar.Brand>
+                <Navbar.Brand onClick={() => navigate('/')} className='cursor-pointer me-2'>☕ El Mirador</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto d-flex justify-content-between w-100">
                         <div className='d-flex nav-responsive'>
-                            <Nav.Link href="#" onClick={() => navigate('/')}>Home</Nav.Link>
+                            {/* <Nav.Link href="#" onClick={() => navigate('/')}>Home</Nav.Link> */}
                             {/* <Nav.Link href='#' disabled='false' onClick={() => navegar('/menu')}>Menú</Nav.Link> */}
                             <Nav.Link href='#' onClick={() => navegar('/sobre-nosotros')}>Sobre Nosotros</Nav.Link>
                             <Nav.Link href='#' onClick={() => setShowModal(true)}>Contacto</Nav.Link>
@@ -43,16 +43,19 @@ const BasicExample = () => {
                         </div>
 
                         {
-                            username &&
-                            <div>
-                                <NavDropdown style={{ fontWeight: `bold` }} title="Mi Perfil" id="basic-nav-dropdown" align="end">
-                                    <NavDropdown.Item style={{ fontWeight: `bold` }} href="#">{username ? <><i className="bi bi-person-circle"></i>  {username}</> : ''}</NavDropdown.Item>
-                                    <NavDropdown.Item onClick={editarPerfil}>Editar mi perfil</NavDropdown.Item>
-                                    <NavDropdown.Item disabled='true' href="#">Eliminar mi cuenta</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item onClick={handleCloseSesion}>Cerrar mi sesión 🔻</NavDropdown.Item>
-                                </NavDropdown>
-                            </div>
+                            username
+                                ?
+                                <div>
+                                    <NavDropdown style={{ fontWeight: `bold` }} title="Mi Perfil" id="basic-nav-dropdown" align="end">
+                                        <NavDropdown.Item style={{ fontWeight: `bold` }} href="#">{username ? <><i className="bi bi-person-circle"></i>  {username}</> : ''}</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={editarPerfil}>Editar mi perfil</NavDropdown.Item>
+                                        <NavDropdown.Item disabled='true' href="#">Eliminar mi cuenta</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item onClick={handleCloseSesion}>Cerrar mi sesión 🔻</NavDropdown.Item>
+                                    </NavDropdown>
+                                </div>
+                                :
+                                <Nav.Link onClick={() => navegar('/reservas')} className='fw-semibold text-black' title="Iniciar Sesión" align="end">Iniciar Sesión</Nav.Link>
                         }
                     </Nav>
                 </Navbar.Collapse>

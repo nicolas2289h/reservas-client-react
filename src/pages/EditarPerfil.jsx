@@ -11,7 +11,7 @@ const initialFormValues = {
     username: ''
 }
 
-const URL_BASE = 'https://reservas-glitch-production.up.railway.app'
+const URL_BASE = 'https://enchanted-east-close.glitch.me'
 
 const EditarPerfil = () => {
     const { username } = useParams()
