@@ -62,21 +62,21 @@ const EditarPerfil = () => {
                         loading ?
                             <BeatLoader className='mx-auto text-center' size={10} color="#fff" />
                             :
-                            <form onSubmit={handleSubmit} className='mx-auto mt-4 white-shadow p-4 rounded'>
+                            <form onSubmit={handleSubmit} className='mx-auto mt-4 bg-white text-black p-4 rounded'>
                                 <div className='mb-3'>
-                                    <label htmlFor="nombre" className="form-label">Nombre</label>
+                                    <label htmlFor="nombre" className="form-label text-secondary">Nombre:</label>
                                     <input className='form-control' type="text" id='nombre' name='nombre' value={datosUsuario.nombre} onChange={handleChange} />
                                 </div>
                                 <div className='mb-3'>
-                                    <label htmlFor="apellido" className="form-label">Apellido</label>
+                                    <label htmlFor="apellido" className="form-label text-secondary">Apellido:</label>
                                     <input className='form-control' type="text" id='apellido' name='apellido' value={datosUsuario.apellido} onChange={handleChange} />
                                 </div>
                                 <div className='mb-3'>
-                                    <label htmlFor="email" className="form-label">Email</label>
+                                    <label htmlFor="email" className="form-label text-secondary">Email:</label>
                                     <input className='form-control' type="email" id='email' name='email' value={datosUsuario.email} onChange={handleChange} />
                                 </div>
                                 <div className='mb-3'>
-                                    <label htmlFor="username" className="form-label">Nombre de usuario</label>
+                                    <label htmlFor="username" className="form-label text-secondary">Nombre de usuario:</label>
                                     <input className='form-control' type="text" id='username' name='username' value={datosUsuario.username} onChange={handleChange} />
                                 </div>
                                 <div className='d-grid'>

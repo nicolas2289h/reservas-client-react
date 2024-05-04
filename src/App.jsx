@@ -9,6 +9,7 @@ import Menu from './pages/Menu'
 import Home from './pages/Home'
 import EditarPerfil from './pages/EditarPerfil'
 import SobreNosotros from './pages/SobreNosotros'
+import Eventos from './pages/Eventos'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
 
         <Route element={<ProtectedRoute />}>
           <Route path="/reservas" element={<Reservas />} />
+          <Route path="/eventos" element={<Eventos />} />
           <Route path="/editar-perfil/:username" element={<EditarPerfil />} />
         </Route>
         <Route path="*" element={<h1>404 - Not Found</h1>} />

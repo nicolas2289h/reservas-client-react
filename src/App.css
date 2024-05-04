@@ -13,6 +13,22 @@
    background-size: cover;
    /* background-position: top; */
    background-repeat: no-repeat;
+
+   /* background-color: #000000b7; */
+ }
+
+ #basic-nav-dropdown {
+   color: #f2f2f2;
+ }
+
+ .dropdown-menu {
+   background-color: #1f1f1f;
+   border-color: #bfbfbf41;
+ }
+
+ .dropdown-item {
+   color: #f2f2f2;
+   border-bottom: 1px solid #bfbfbf41;
  }
 
  .ocupada {
@@ -51,7 +67,7 @@
  }
 
  .icon-instagram {
-   color: rgb(255, 149, 0);
+   color: rgb(255, 0, 106);
  }
 
  .mensajeError {
@@ -90,7 +106,7 @@
 
  .white-shadow {
    box-shadow: 0 0 10px #ffffffb0;
-   backdrop-filter: blur(10px);
+   /* backdrop-filter: blur(10px); */
  }
 
  .form-width {
@@ -103,7 +119,9 @@
    width: 180px;
  }
 
-
+ .resize-none {
+  resize: none;
+}
 
  @media screen and (max-width: 1000px) {
    .nav-responsive {
@@ -119,6 +137,10 @@
  @media screen and (max-width: 720px) {
    .nav-responsive {
      flex-direction: column;
+   }
+
+   .wrap{
+    flex-wrap: wrap;
    }
 
    .reserva-responsive {
