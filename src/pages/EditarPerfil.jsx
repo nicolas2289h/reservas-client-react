@@ -11,7 +11,7 @@ const initialFormValues = {
     username: ''
 }
 
-const URL_BASE = 'https://enchanted-east-close.glitch.me'
+const URL_BASE = 'https://cosmic-denim-farm.glitch.me'
 
 const EditarPerfil = () => {
     const { username } = useParams()

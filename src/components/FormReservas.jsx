@@ -12,7 +12,7 @@ const initialForm = {
     nroMesa: null
 }
 
-const URL_BASE = 'https://enchanted-east-close.glitch.me'
+const URL_BASE = 'https://cosmic-denim-farm.glitch.me'
 
 const FormReservas = ({ username, obtenerReservasDelUsuario }) => {
     const [formData, setFormData] = useState(initialForm)

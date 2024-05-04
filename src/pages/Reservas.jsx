@@ -6,7 +6,7 @@ import ModalAlert from '../components/ModalAlert';
 import BeatLoader from "react-spinners/BeatLoader";
 
 // http://localhost:3000
-const URL_BASE = 'https://enchanted-east-close.glitch.me'
+const URL_BASE = 'https://cosmic-denim-farm.glitch.me'
 
 const Reservas = () => {
     const [listadoReservas, setListadoReservas] = useState([])

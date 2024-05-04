@@ -3,7 +3,7 @@ import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 import axios from 'axios';
 import ModalTerminosCondiciones from '../components/ModalTerminosCondiciones';
 
-const URL_BASE = 'https://enchanted-east-close.glitch.me'
+const URL_BASE = 'https://cosmic-denim-farm.glitch.me'
 
 const Eventos = () => {
     const [preferenceId, setPreferenceId] = useState(null)
@@ -67,7 +67,7 @@ const Eventos = () => {
                         <div>
                             <input required className='cursor-pointer me-2' type="checkbox" id='politicas' />
                             <label className='cursor-pointer' htmlFor="politicas">Acepto los términos y condiciones.</label>
-                            <span className='text-primary fw-bold cursor-pointer' onClick={() => setShowModal(true)}> Leer <i class="bi bi-box-arrow-up-right"></i></span>
+                            <span className='text-primary fw-bold cursor-pointer' onClick={() => setShowModal(true)}> Leer <i className="bi bi-box-arrow-up-right"></i></span>
                         </div>
                         <button className='btn btn-primary' disabled={loading}>{loading ? 'Cargando Método de Pago...' : 'Registrar Evento'}</button>
                         {
