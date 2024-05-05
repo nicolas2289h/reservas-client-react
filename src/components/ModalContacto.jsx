@@ -8,7 +8,7 @@ const ModalContacto = ({ show, handleClose }) => {
     return (
         <Modal show={show} onHide={handleClose} className='text-black' aria-labelledby="contained-modal-title-vcenter ">
             <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
+                <Modal.Title id="contained-modal-title-vcenter" className='text-primary'>
                     Te esperamos!
                 </Modal.Title>
             </Modal.Header>

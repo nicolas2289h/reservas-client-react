@@ -5,7 +5,7 @@ const ModalAlert = ({ show, handleClose, cancelarReserva }) => {
     return (
         <Modal show={show} onHide={handleClose} className='text-black'>
             <Modal.Header closeButton>
-                <Modal.Title>¿Estás seguro?</Modal.Title>
+                <Modal.Title className='text-primary'>¿Estás seguro?</Modal.Title>
             </Modal.Header>
             <Modal.Body>Vas a perder tu reserva ☕🥐</Modal.Body>
             <Modal.Footer>

@@ -32,7 +32,7 @@ const BasicExample = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto d-flex justify-content-between w-100">
                         <div className='d-flex nav-responsive'>
-                            <Nav.Link href='#' onClick={() => navegar('/sobre-nosotros')}>Sobre Nosotros</Nav.Link>
+                            <Nav.Link disabled={true} href='#' onClick={() => navegar('/sobre-nosotros')}>Sobre Nosotros</Nav.Link>
                             <Nav.Link href='#' onClick={() => setShowModal(true)}>Contacto</Nav.Link>
                             <NavDropdown title="Reservas" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#" onClick={() => navegar('/reservas')}>Elegir una mesa</NavDropdown.Item>

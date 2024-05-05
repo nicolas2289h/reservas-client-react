@@ -76,6 +76,8 @@ const Eventos = () => {
                         }
                     </form>
 
+                    <p className='text-center my-2'>Se deberá abonar por anticipado al completar el formulario.</p>
+
                     <ModalTerminosCondiciones show={showModal} handleClose={() => setShowModal(false)} />
                 </div>
             </div>

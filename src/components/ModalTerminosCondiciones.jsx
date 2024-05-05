@@ -17,7 +17,7 @@ const ModalTerminosCondiciones = ({ show, handleClose }) => {
 
                 <p>Para solicitar cancelación y reembolso, escríbenos a elmiradorsalondete@gmail.com con tus datos de reserva.</p>
                 <p>Recuerda que los reembolsos pueden tardar en procesarse y reflejarse en tu cuenta bancaria o método de pago original.</p>
-                <p>Para más información o preguntas, contáctanos. Estamos aquí para ayudarte.</p>
+                <p>Para más información o preguntas, contactanos. Estamos aquí para ayudarte.</p>
             </Modal.Body>
         </Modal>
     )

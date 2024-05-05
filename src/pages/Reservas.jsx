@@ -61,7 +61,7 @@ const Reservas = () => {
                             <>
                                 <FormReservas username={username} obtenerReservasDelUsuario={obtenerReservasDelUsuario} />
                                 <div className='bg-white form-width text-black rounded container-mis-reservas-responsive'>
-                                    <h3 className='text-center mt-1'>Mis reservas 📝</h3>
+                                    <h3 className='text-center mt-3'>Mis reservas 📝</h3>
                                     <div className='mis-reservas-responsive'>
                                         {listadoReservas.length == 0
                                             ?
